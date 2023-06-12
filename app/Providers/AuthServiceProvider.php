@@ -27,10 +27,12 @@ class AuthServiceProvider extends ServiceProvider
         //
         VerifyEmail::toMailUsing(function($notifiable, $url) {
             return (new MailMessage)
+                ->greeting('¡Bienvenido!')
                 ->subject('Verificar Cuenta')  
                 ->line('Tu cuenta ya está casi lista, solo debes presionar el enlace a continuación')
                 ->action('Confirmar Cuenta', $url)
-                ->line('Si no creaste esta cuenta puedes ignorar este mensaje');
+                ->line('Si no creaste esta cuenta puedes ignorar este mensaje')
+                ->salutation(' ');
         });
     }
 }
