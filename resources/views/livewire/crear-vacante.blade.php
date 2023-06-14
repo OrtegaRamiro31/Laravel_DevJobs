@@ -1,4 +1,4 @@
-<form action="" class="md:w-1/2 space-y-5">
+<form class="md:w-1/2 space-y-5" wire:submit.prevent="crearVacante">
     <!-- Vacant -->
     <div>
         <x-input-label for="titulo" :value="__('Titulo Vacante')" />
@@ -26,9 +26,10 @@
                 <option value="{{$salario->id}}">{{$salario->salario}}</option>
             @endforeach
         </select>
+        <x-input-error :messages="$errors->get('salario')" class="mt-2" />    
     </div>
 
-    <!-- Salary -->
+    <!-- Category -->
     <div>
         <x-input-label for="categoria" :value="__('Categoría')" />
         <select
@@ -36,11 +37,12 @@
             wire:model="categoria"
             class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full"
         >
-        <option value="">-- Seleccione --</option>
-        @foreach ($categorias as $categoria)
-            <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
-        @endforeach
+            <option value="">-- Seleccione --</option>
+            @foreach ($categorias as $categoria)
+                <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+            @endforeach
         </select>
+        <x-input-error :messages="$errors->get('categoria')" class="mt-2" />    
     </div>
 
     <!-- Enterprise -->
