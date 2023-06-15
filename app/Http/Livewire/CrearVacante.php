@@ -32,6 +32,16 @@ class CrearVacante extends Component
     public function crearVacante()
     {
         $datos = $this->validate();
+
+        // Almacenar la imágen
+        $imagen = $this->imagen->store('public/vacantes');
+        $nombre_imagen = str_replace('public/vacantes/', '', $imagen);
+        // dd($nombre_imagen);
+        // Crear la Vacante
+
+        // Crear un mensaje
+
+        // Redireccionar al usuario
     } 
     public function render()
     {
