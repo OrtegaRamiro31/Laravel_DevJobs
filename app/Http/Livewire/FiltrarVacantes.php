@@ -11,10 +11,11 @@ class FiltrarVacantes extends Component
     public $termino;
     public $categoria;
     public $salario;
+    
 
     public function leerDatosFormulario()
     {
-        dd('Buscando');
+        $this->emit('terminosBusqueda', $this->termino, $this->categoria, $this->salario);
     }
 
     public function render()
