@@ -35,11 +35,12 @@ class PostularVacante extends Component
             'user_id' => auth()->user()->id,
             'cv' => $datos['cv'],
         ]);
-        
+
         // Crear notificación y enviar el email
 
         // Mostrar al usuario un mensaje de envío correcto
-        
+        session()->flash('mensaje', 'Se envió correctamente tu información. ¡Mucha suerte!');
+        return redirect()->back();
     }
     public function render()
     {
