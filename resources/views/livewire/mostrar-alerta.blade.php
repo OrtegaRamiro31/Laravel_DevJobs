@@ -1,5 +1,3 @@
-<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-    <div class="p-6 text-gray-900">
-        {{ __("Mis Vacantes") }}
-    </div>
+<div class="border border-red-500 bg-red-100 text-red-700 font-bold capitalize p-2 text-xs">
+    <p>{{$message}}</p>
 </div>
