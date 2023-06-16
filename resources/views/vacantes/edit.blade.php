@@ -14,7 +14,7 @@
                     </h1>
 
                     <div class="md:flex md:justify-center p-5">
-                        
+                        <livewire:editar-vacante />
                     </div>
                 </div>
             </div>
