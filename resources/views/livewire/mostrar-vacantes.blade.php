@@ -14,7 +14,10 @@
                     <a 
                         href="{{ route('candidatos.index', $vacante) }}"
                         class="bg-slate-800 p-2 rounded-lg text-white text-xs font-bold uppercase text-center"
-                    >Candidatos</a>
+                    >
+                        {{ $vacante->candidatos->count() }}
+                        Candidatos
+                    </a>
     
                     <a 
                         href="{{ route('vacantes.edit', $vacante->id) }}"
