@@ -29,6 +29,20 @@ class EditarVacante extends Component
         $this->imagen = $vacante->imagen;
     }   
 
+    protected $rules = [
+        'titulo' => 'required|string',
+        'salario' => 'required|numeric',
+        'categoria' => 'required|numeric',
+        'empresa' => 'required',
+        'ultimo_dia' => 'required',
+        'descripcion' => 'required',
+    ];
+
+    public function editarVacante() 
+    {
+        $datos = $this->validate();
+    }
+
     public function render()
     {
         // Consultar la BD
