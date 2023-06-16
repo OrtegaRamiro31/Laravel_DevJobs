@@ -106,6 +106,12 @@
             wire:model="imagen" 
             accept="image/*"
         />
+
+        <div class="my-5 w-80">
+            <x-input-label :value="__('Imágen Actual')" />
+
+            <img src="{{ asset('storage/vacantes/' . $imagen) }}" alt="{{ 'Imagen Vacante ' . $titulo }}" />
+        </div>
         {{-- <div class="my-5 w-80">
             @if ($imagen)
                 Imagen:
@@ -118,6 +124,6 @@
     </div>
     
     <x-primary-button>
-        Editar Vacante
+        Guardar Cambios
     </x-primary-button>
 </form>
