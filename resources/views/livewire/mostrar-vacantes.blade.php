@@ -16,7 +16,7 @@
                 >Candidatos</a>
 
                 <a 
-                    href="#"
+                    href="{{ route('vacantes.edit', $vacante->id) }}"
                     class="bg-blue-800 p-2 rounded-lg text-white text-xs font-bold uppercase text-center"
                 >Editar</a>
 
