@@ -11,7 +11,10 @@ class NotificacionController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
-        dd('Desde notificacionController');
+        $notificaciones = auth()->user()->unreadNotifications;
+
+        return view('notificaciones.index', [
+            'notificaciones' => $notificaciones
+        ]);
     }
 }
