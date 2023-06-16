@@ -19,13 +19,16 @@ class HomeVacantes extends Component
         $this->termino = $termino;
         $this->categoria = $categoria;
         $this->salario = $salario;
-
-        dd($this->termino);
     }
 
     public function render()
     {
-        $vacantes = Vacante::all();
+        // $vacantes = Vacante::all();
+
+        // Cuando se tenga un término -> ejecuta el query con where que contiene el Like
+        $vacantes = Vacante::when($this->termino, function($query) {
+            $query->where('titulo', 'LIKE', "%" . $this->termino . "%");
+        })->paginate(20);
 
         return view('livewire.home-vacantes', [
             'vacantes' => $vacantes,
