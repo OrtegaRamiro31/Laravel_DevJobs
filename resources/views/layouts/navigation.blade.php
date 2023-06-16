@@ -101,16 +101,16 @@
                     {{ __('Crear Vacante') }}
                 </x-responsive-nav-link>
                 @if (auth()->user()->rol === 2)
-                <div class="flex gap-2 items-center p-3">
-                    <a class="w-7 h-7 bg-indigo-600 hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center
-                    text-sm font-extrabold text-white" href="{{ route('notificaciones') }}">
-                        {{ auth()->user()->unreadNotifications->count() }}
-                    </a>
-                    <p class="text-base font-medium text-gray-600">
-                        @choice('Notificación|Notificaciones', auth()->user()->unreadNotifications->count())
-                    </p>
-                </div>
-            @endif
+                    <div class="flex gap-2 items-center p-3">
+                        <a class="w-7 h-7 bg-indigo-600 hover:bg-indigo-800 rounded-full flex flex-col justify-center items-center
+                        text-sm font-extrabold text-white" href="{{ route('notificaciones') }}">
+                            {{ auth()->user()->unreadNotifications->count() }}
+                        </a>
+                        <p class="text-base font-medium text-gray-600">
+                            @choice('Notificación|Notificaciones', auth()->user()->unreadNotifications->count())
+                        </p>
+                    </div>
+                @endif
             </div>
 
             <!-- Responsive Settings Options -->
