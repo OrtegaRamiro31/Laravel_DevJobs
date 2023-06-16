@@ -14,7 +14,7 @@
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                            {{ __('Dashboard') }}
+                            {{ __('Mis Vacantes') }}
                         </x-nav-link>
                         <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
                             {{ __('Crear Vacante') }}
@@ -57,6 +57,19 @@
                         </x-slot>
                     </x-dropdown>
                 @endauth
+
+                @guest
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('login')" >
+                        {{ __('Iniciar Sesión') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('register')">
+                        {{ __('Crear Cuenta') }}
+                    </x-nav-link>
+                </div>
+            @endguest
+
             </div>
 
             <!-- Hamburger -->
@@ -71,6 +84,7 @@
         </div>
     </div>
 
+    <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         @auth
             <div class="pt-2 pb-3 space-y-1">
@@ -107,6 +121,16 @@
                 </div>
             </div>
         @endauth
-    <!-- Responsive Navigation Menu -->
+
+        @guest
+            <div class="pt-2 pb-3 space-y-1">
+                <x-responsive-nav-link :href="route('login')" >
+                    {{ __('Iniciar Sesión') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('register')" >
+                    {{ __('Crear Cuenta') }}
+                </x-responsive-nav-link>
+            </div>
+        @endguest
     </div>
 </nav>
