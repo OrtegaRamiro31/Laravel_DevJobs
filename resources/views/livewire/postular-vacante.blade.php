@@ -5,6 +5,9 @@
             {{ session('mensaje') }}
         </p>
     @else
+        @if ( $vacante->candidatos->contains('user_id', auth()->user()->id) )
+            <p>Ya te has postulado a esta vacante</p>
+        @else
         <form wire:submit.prevent='postularme' class="w-96 mt-5">
             <div class="mb-4">
                 <x-input-label for="cv" :value="__('Curriculum o Hoja de Vida (PDF)')" />
@@ -19,6 +22,7 @@
                 {{ __('Postularme') }}
             </x-primary-button>
         </form>
+        @endif
     @endif
     
     
